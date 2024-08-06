@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+.regular-price{
+    text-decoration: line-through;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    color: #444444;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+img{
+    width: 100%;;
+}
+
+.section-products {
+    padding: 80px 0 54px;
+}
+
+.section-products .header {
+    margin-bottom: 50px;
+}
+
+.section-products .header h3 {
+    font-size: 1rem;
+    color: #fe302f;
+    font-weight: 500;
+}
+
+.section-products .header h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444444; 
+}
+
+.section-products .single-product {
+    margin-bottom: 26px;
+}
+
+.section-products .single-product .part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-products .single-product .part-1::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		transition: all 0.3s;
+}
+
+.section-products .single-product:hover .part-1::before {
+		transform: scale(1.2,1.2) rotate(5deg);
+}
+
+.section-products #product-1 .part-1::before {
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+
+.section-products #product-2 .part-1::before {
+    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #product-3 .part-1::before {
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #product-4 .part-1::before {
+    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products .single-product .part-1 .discount,
+.section-products .single-product .part-1 .new {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #ffffff;
+    background-color: #fe302f;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.section-products .single-product .part-1 .new {
+    left: 0;
+    background-color: #444444;
+}
+
+.section-products .single-product .part-1 ul {
+    position: absolute;
+    bottom: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.section-products .single-product:hover .part-1 ul {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.section-products .single-product .part-1 ul li {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.section-products .single-product .part-1 ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffffff;
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: color 0.2s;
+}
+
+.section-products .single-product .part-1 ul li a:hover {
+    color: #fe302f;
+}
+
+.section-products .single-product .part-2 .product-title {
+    font-size: 1rem;
+}
+.part-1{
+    position: relative;
+}
+.section-products .single-product .part-2 h4 {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.section-products .single-product .part-2 .product-old-price {
+    position: relative;
+    padding: 0 7px;
+    margin-right: 2px;
+    opacity: 0.6;
+}
+
+.section-products .single-product .part-2 .product-old-price::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #444444;
+    transform: translateY(-50%);
+}
+.soldout{
+    position: absolute;
+    bottom: 0;
+    background-color: #777;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <section class="section-products">
+		<div class="container">
+				<div class="row justify-content-center text-center">
+						<div class="col-md-8 col-lg-6">
+								<div class="header">
+										<h3>Featured Product</h3>
+										<h2>Popular Products</h2>
+								</div>
+						</div>
+				</div>
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/Premier_Cropped_Skinny_Jean_13_2048x2048_dab3dc7a-ea19-4476-8f0b-431b4317bff8_280x.avif" alt="">
+                                            <span class="new">new</span>
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                            <div class="soldout" style="position: absolute;bottom: 0;">
+                                                <span>Sold Out</span>
+                                            </div>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Gap</h2>
+                                            <h3 class="product-title">Premier Cropped Skinny Jean</h3>
+                                            <h4 class="product-price">$380.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+                                            <img src="images/Featherweight_Pima_Hoodie_4_2048x2048_4a6d6aad-3619-4140-be98-998454c3287d_280x.avif" alt="">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+                                                <h2 class="vendor">Gap</h2>
+												<h3 class="product-title">East Hampton Fleece Hoodie</h3>
+												<h4 class="product-price">$440.00</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/Relaxed-FitCottonShirt_4_280x.avif" alt="">
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Guess</h2>
+                                            <h3 class="product-title">Relaxed-Fit Cotton Shirt</h3>
+                                            <h4 class="product-price">$480.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div id="product-2" class="single-product">
+                                <div class="part-1">
+                                    <img src="images/TailoredFitMesh-PanelPolo_4_280x.avif" alt="">
+                                        <span class="discount">15% off</span>
+                                        <ul>
+                                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                        </ul>
+                                </div>
+                                <div class="part-2">
+                                        <h2 class="vendor">Zara</h2>
+                                        <h3 class="product-title">Tailored Fit Mesh-Panel Polo</h3>
+                                        <h4 class="product-price">$400.00</h4>
+                                        <div class="regular-price">$460.00</div>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/SlimFitCottonOxfordShirt_4a888cc9-af0c-42ed-b22a-f83163de1880_280x.avif" alt="">
+                                            <span class="discount">15% off</span>
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                            <div class="soldout" style="position: absolute;bottom: 0;">
+                                                <span>Sold Out</span>
+                                            </div>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Levi's</h2>
+                                            <h3 class="product-title">Slim Fit Cotton Oxford Shirt</h3>
+                                            <h4 class="product-price">$500.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+                                            <img src="images/Faxon_Chambray_Low-Top_Sneaker_Featured_2048x2048_45918428-ab1d-40aa-988f-8543c7fa8bd8_280x.avif" alt="">
+												<span class="discount">15% off</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+                                                <h2 class="vendor">Zara</h2>
+												<h3 class="product-title">Faxon Canvas Low-Top Sneaker</h3>
+												<h4 class="product-price">$460.00</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/Viscose-CashmereScarf_4_280x.webp" alt="">
+                                            <span class="new">new</span>
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Lacoste</h2>
+                                            <h3 class="product-title">Viscose-Cashmere Scarf</h3>
+                                            <h4 class="product-price">$440.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div id="product-2" class="single-product">
+                                <div class="part-1">
+                                    <img src="images/PlaidCottonOxfordShirt_8_280x.avif" alt="">
+                                        <ul>
+                                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                        </ul>
+                                </div>
+                                <div class="part-2">
+                                        <h2 class="vendor">Levi's</h2>
+                                        <h3 class="product-title">Plaid Cotton Oxford Shirt</h3>
+                                        <h4 class="product-price">$20.00</h4>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/SkinnyFitStretchMeshPolo_5_280x.avif" alt="">
+                                            <span class="discount">15% off</span>
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                            <div class="soldout" style="position: absolute;bottom: 0;">
+                                                <span>Sold Out</span>
+                                            </div>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Levi's</h2>
+                                            <h3 class="product-title">Skinny Fit Stretch Mesh Polo</h3>
+                                            <h4 class="product-price">$20.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-2" class="single-product">
+										<div class="part-1">
+                                            <img src="images/TailoredFitPoloShirt_4_280x.avif" alt="">
+												<span class="new">new</span>
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+                                                <h2 class="vendor">Polo</h2>
+												<h3 class="product-title">Tailored Fit Mesh-Panel Polo</h3>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                    <div class="part-1">
+                                        <img src="images/Faxon_Canvas_Low-Top_Sneaker_1_8a94289f-c9c8-4e47-afa1-c436717fc271_280x.avif" alt="">
+                                            <span class="discount">15% off</span>
+                                            <ul>
+                                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                            </ul>
+                                    </div>
+                                    <div class="part-2">
+                                            <h2 class="vendor">Polo</h2>
+                                            <h3 class="product-title">Raxon Chambray Low-Top Sneaker</h3>
+                                            <h4 class="product-price">$480.00</h4>
+                                    </div>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div id="product-2" class="single-product">
+                                <div class="part-1">
+                                    <img src="images/SlimFitCottonOxfordShirt_4a888cc9-af0c-42ed-b22a-f83163de1880_280x.avif" alt="">
+                                        <span class="discount">15% off</span>
+                                        <ul>
+                                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                        </ul>
+                                </div>
+                                <div class="part-2">
+                                        <h2 class="vendor">Levi's</h2>
+                                        <h3 class="product-title">Product Layout</h3>
+                                        <h4 class="product-price">$49.00</h4>
+                                </div>
+                        </div>
+                </div>
+						<!-- Single Product -->
+						
+		</div>
+        </div>
+</section>
+</body>
+</html>
